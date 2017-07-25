@@ -34,6 +34,7 @@
   },
   "include-path": ["vendor/tecnickcom"],
   "require": {
+    "civicrm/civicrm-packages": "self.version",
     "dompdf/dompdf" : "0.8.*",
     "electrolinux/phpquery": "^0.9.6",
     "symfony/config": "^2.6.13 || ~3.0",
@@ -58,6 +59,10 @@
     {
       "type": "git",
       "url": "https://github.com/civicrm/zetacomponents-mail.git"
+    },
+    {
+      "type": "git",
+      "url": "https://github.com/civicrm/civicrm-packages.git"
     }
   ],
   "scripts": {
