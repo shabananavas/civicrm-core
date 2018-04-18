@@ -113,16 +113,9 @@ class CRM_Contact_Form_Merge extends CRM_Core_Form {
       $mainUfId = CRM_Core_BAO_UFMatch::getUFId($this->_cid);
       $mainUser = NULL;
       if ($mainUfId) {
-        // d6 compatible
-        if ($config->userSystem->is_drupal == '1') {
-          $mainUser = user_load($mainUfId);
-        }
-        elseif ($config->userFramework == 'Joomla') {
-          $mainUser = JFactory::getUser($mainUfId);
-        }
-
+        $mainUser = $config->userSystem->getUser($this->_cid);
         $this->assign('mainUfId', $mainUfId);
-        $this->assign('mainUfName', $mainUser ? $mainUser->name : NULL);
+        $this->assign('mainUfName', $mainUser ? $mainUser['name'] : NULL);
       }
 
       $flipUrl = CRM_Utils_System::url('civicrm/contact/merge',
@@ -152,16 +145,9 @@ class CRM_Contact_Form_Merge extends CRM_Core_Form {
       $otherUser = NULL;
 
       if ($otherUfId) {
-        // d6 compatible
-        if ($config->userSystem->is_drupal == '1') {
-          $otherUser = user_load($otherUfId);
-        }
-        elseif ($config->userFramework == 'Joomla') {
-          $otherUser = JFactory::getUser($otherUfId);
-        }
-
+        $otherUser = $config->userSystem->getUser($this->_oid);
         $this->assign('otherUfId', $otherUfId);
-        $this->assign('otherUfName', $otherUser ? $otherUser->name : NULL);
+        $this->assign('otherUfName', $otherUser ? $otherUser['name'] : NULL);
       }
 
       $cmsUser = ($mainUfId && $otherUfId) ? TRUE : FALSE;
