@@ -30,7 +30,10 @@
       "PHPUnit_": ["packages/"],
       "Civi": "",
       "Civi\\": [".", "tests/phpunit/"]
-    }
+    },
+    "classmap": [
+      "scripts/composer/ScriptHandler.php"
+    ]
   },
   "include-path": ["vendor/tecnickcom"],
   "require": {
@@ -53,7 +56,8 @@
     "civicrm/civicrm-cxn-rpc": "~0.17.07.01",
     "pear/Auth_SASL": "1.1.0",
     "pear/Net_SMTP": "1.6.*",
-    "pear/Net_socket": "1.0.*"
+    "pear/Net_socket": "1.0.*",
+    "webflo/drupal-finder": "^1.1"
   },
   "repositories": [
     {
@@ -71,14 +75,16 @@
       "bash tools/scripts/composer/tcpdf-cleanup.sh",
       "bash tools/scripts/composer/pear-exception-fix.sh",
       "bash tools/scripts/composer/net-smtp-fix.sh",
-      "bash tools/scripts/composer/phpword-jquery.sh"
+      "bash tools/scripts/composer/phpword-jquery.sh",
+      "CiviCRMCore\\composer\\ScriptHandler::createRequiredAssets"
     ],
     "post-update-cmd": [
       "bash tools/scripts/composer/dompdf-cleanup.sh",
       "bash tools/scripts/composer/tcpdf-cleanup.sh",
       "bash tools/scripts/composer/pear-exception-fix.sh",
       "bash tools/scripts/composer/net-smtp-fix.sh",
-      "bash tools/scripts/composer/phpword-jquery.sh"
+      "bash tools/scripts/composer/phpword-jquery.sh",
+      "CiviCRMCore\\composer\\ScriptHandler::createRequiredAssets"
     ]
   }
 }

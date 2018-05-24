@@ -43,9 +43,9 @@ class ScriptHandler {
     $current_dir = getcwd();
     $libraries_dir = $drupalRoot . '/' . $dir;
 
-    escapeshellarg($current_dir);
+    escapeshellarg($drupalRoot);
     escapeshellarg($libraries_dir);
-    $output = shell_exec("sh $current_dir/civicrm-drupal-post-install.sh $current_dir $libraries_dir");
+    $output = shell_exec("sh $current_dir/scripts/composer/civicrm-drupal-post-install.sh $drupalRoot $libraries_dir");
   }
 
 }
