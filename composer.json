@@ -30,10 +30,7 @@
       "PHPUnit_": ["packages/"],
       "Civi": "",
       "Civi\\": [".", "tests/phpunit/"]
-    },
-    "classmap": [
-      "scripts/composer/ScriptHandler.php"
-    ]
+    }
   },
   "include-path": ["vendor/tecnickcom"],
   "require": {
@@ -70,12 +67,6 @@
     }
   ],
   "scripts": {
-    "post-package-install": [
-      "CiviCRMCore\\composer\\ScriptHandler::createRequiredAssets"
-    ],
-    "post-package-update": [
-      "CiviCRMCore\\composer\\ScriptHandler::createRequiredAssets"
-    ],
     "post-install-cmd": [
       "bash tools/scripts/composer/dompdf-cleanup.sh",
       "bash tools/scripts/composer/tcpdf-cleanup.sh",
